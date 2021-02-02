@@ -15,6 +15,70 @@
         <% end %>
     </div>
 
+
+    <div>
+        <%= form.label "Strength ASI" %><br>
+        <%= form.number_field :asi_str %>
+        <% race.errors.full_messages_for(:asi_str).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label "Dexterity ASI" %><br>
+        <%= form.number_field :asi_dex %>
+        <% race.errors.full_messages_for(:asi_dex).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label "Constitution ASI" %><br>
+        <%= form.number_field :asi_con %>
+        <% race.errors.full_messages_for(:asi_con).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label "Intelligence ASI" %><br>
+        <%= form.number_field :asi_int %>
+        <% race.errors.full_messages_for(:asi_int).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label "Wisdom ASI" %><br>
+        <%= form.number_field :asi_wis %>
+        <% race.errors.full_messages_for(:asi_wis).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label "Charisma ASI" %><br>
+        <%= form.number_field :asi_cha %>
+        <% race.errors.full_messages_for(:asi_cha).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :size %><br>
+        <%= form.select :size, ["Small", "Medium", "Large"]%>
+        <% race.errors.full_messages_for(:size).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :speed %><br>
+        <%= form.number_field :speed %>
+        <% race.errors.full_messages_for(:speed).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
     <div>
         <%= form.submit %>
     </div>

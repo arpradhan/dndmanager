@@ -38,6 +38,6 @@ class RacesController < ApplicationController
 
     private
     def race_params
-        params.require(:race).permit(:key, :name)
+        params.require(:race).permit(:key, :name, :size, :speed, :asi_str, :asi_dex, :asi_con, :asi_int, :asi_wis, :asi_cha)
     end
 end

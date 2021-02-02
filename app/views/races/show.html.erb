@@ -1,8 +1,36 @@
 <h1><%= @race.name %></h1>
+
 <h3>Key</h3>
 <div><%= @race.key %></div>
+
 <h3>Name</h3>
 <div><%= @race.name %></div>
+
+<h3>Size</h3>
+<div><%= @race.size %></div>
+
+<h3>Speed</h3>
+<div><%= @race.speed %></div>
+
+<h3>Strength ASI</h3>
+<div><%= @race.asi_str %></div>
+
+<h3>Dexterity ASI</h3>
+<div><%= @race.asi_dex %></div>
+
+<h3>Constitution ASI</h3>
+<div><%= @race.asi_con %></div>
+
+<h3>Intelligence ASI</h3>
+<div><%= @race.asi_int %></div>
+
+<h3>Wisdom ASI</h3>
+<div><%= @race.asi_wis %></div>
+
+<h3>Charisma ASI</h3>
+<div><%= @race.asi_cha %></div>
+
+
 <ul>
     <li>
         <%= link_to "Edit", edit_race_path(@race) %>

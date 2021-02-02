@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_205649) do
+ActiveRecord::Schema.define(version: 2021_02_02_214959) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2021_02_02_205649) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "asi_str", default: 0
+    t.integer "asi_dex", default: 0
+    t.integer "asi_con", default: 0
+    t.integer "asi_int", default: 0
+    t.integer "asi_wis", default: 0
+    t.integer "asi_cha", default: 0
+    t.string "size"
+    t.integer "speed"
   end
 
   add_foreign_key "characters", "races"
