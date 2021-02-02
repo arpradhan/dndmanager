@@ -9,6 +9,7 @@ class CharactersController < ApplicationController
 
   def new
     @character = Character.new
+    @races = Race.all
   end
 
   def create
@@ -23,6 +24,7 @@ class CharactersController < ApplicationController
 
   def edit
     @character = Character.find(params[:id])
+    @races = Race.all
   end
 
   def update
@@ -44,6 +46,6 @@ class CharactersController < ApplicationController
 
   private
   def character_params
-    params.require(:character).permit(:name)
+    params.require(:character).permit(:name, :race_id)
   end
 end

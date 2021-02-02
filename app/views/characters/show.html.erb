@@ -1,4 +1,8 @@
 <h1><%= @character.name %></h1>
+<h3>Race</h3>
+<% if @character.race %>
+<div><%= @character.race.name %></div>
+<% end %>
 <ul>
     <li>
         <%= link_to "Edit", edit_character_path(@character) %>

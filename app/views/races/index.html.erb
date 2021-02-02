@@ -1,0 +1,10 @@
+<h1>Races</h1>
+<%= link_to "Create Race", new_race_path %>
+
+<ul>
+    <% @races.each do |race| %>
+        <li>
+            <%= link_to race.name, race %>
+        </li>
+    <% end %>
+</ul>

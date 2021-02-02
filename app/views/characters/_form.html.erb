@@ -8,6 +8,11 @@
     </div>
 
     <div>
+        <%= form.label :race %><br>
+        <%= form.collection_select :race_id, @races.order(:name), :id, :name %>
+    </div>
+
+    <div>
         <%= form.submit %>
     </div>
 <% end %>
