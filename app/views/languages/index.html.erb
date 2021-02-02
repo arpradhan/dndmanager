@@ -1,0 +1,9 @@
+<h1>Languages</h1>
+<%= link_to "Create Language", new_language_path %>
+<ul>
+    <% @languages.each do |language| %>
+        <li>
+            <%= link_to language.name, language_path(language) %>
+        </li>
+    <% end %>
+</ul>
