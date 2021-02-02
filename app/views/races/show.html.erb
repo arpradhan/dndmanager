@@ -1,34 +1,86 @@
 <h1><%= @race.name %></h1>
 
-<h3>Key</h3>
-<div><%= @race.key %></div>
+<p>Key: <%= @race.key %></p>
 
-<h3>Name</h3>
-<div><%= @race.name %></div>
+<p>Name: <%= @race.name %></p>
 
-<h3>Size</h3>
-<div><%= @race.size %></div>
+<p>Size: <%= @race.size %></p>
 
-<h3>Speed</h3>
-<div><%= @race.speed %></div>
+<p>Speed: <%= @race.speed %></p>
 
-<h3>Strength ASI</h3>
-<div><%= @race.asi_str %></div>
+<h3>Ability Score Increases</h3>
+<% if @race.asi_str > 0 %>
+    <p>Strength: <%= @race.asi_str %></p>
+<% end %>
 
-<h3>Dexterity ASI</h3>
-<div><%= @race.asi_dex %></div>
+<% if @race.asi_dex > 0 %>
+    <p>Dexterity: <%= @race.asi_dex %></p>
+<% end %>
 
-<h3>Constitution ASI</h3>
-<div><%= @race.asi_con %></div>
+<% if @race.asi_con > 0 %>
+    <p>Constitution: <%= @race.asi_con %></p>
+<% end %>
 
-<h3>Intelligence ASI</h3>
-<div><%= @race.asi_int %></div>
+<% if @race.asi_int > 0 %>
+    <p>Intelligence: <%= @race.asi_int %></p>
+<% end %>
 
-<h3>Wisdom ASI</h3>
-<div><%= @race.asi_wis %></div>
+<% if @race.asi_wis > 0 %>
+    <p>Wisdom: <%= @race.asi_wis %></p>
+<% end %>
 
-<h3>Charisma ASI</h3>
-<div><%= @race.asi_cha %></div>
+<% if @race.asi_cha > 0 %>
+    <p>Charisma: <%= @race.asi_cha %></p>
+<% end %>
+
+<% if @race.subraces.size > 0 %>
+    <h3>Subraces</h3>
+    <ul>
+        <% @race.subraces.each do |subrace| %>
+            <li><%= subrace.name %> <%= link_to "Edit", edit_race_subrace_path(subrace) %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<h2>Add a Subrace:</h2>
+<%= form_with model: [@race, @race.subraces.build] do |form| %>
+    <p>
+        <%= form.label :key %><br>
+        <%= form.text_field :key %>
+    </p>
+    <p>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+    </p>
+    <p>
+        <%= form.label "Strength ASI" %><br>
+        <%= form.number_field :asi_str %>
+    </p>
+    <p>
+        <%= form.label "Dexterity ASI" %><br>
+        <%= form.number_field :asi_dex %>
+    </p>
+    <p>
+        <%= form.label "Constitution ASI" %><br>
+        <%= form.number_field :asi_con %>
+    </p>
+    <p>
+        <%= form.label "Intelligence ASI" %><br>
+        <%= form.number_field :asi_int %>
+    </p>
+    <p>
+        <%= form.label "Wisdom ASI" %><br>
+        <%= form.number_field :asi_wis %>
+    </p>
+    <p>
+        <%= form.label "Charisma ASI" %><br>
+        <%= form.number_field :asi_cha %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>
+
 
 
 <ul>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_214959) do
+ActiveRecord::Schema.define(version: 2021_02_02_221350) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -35,5 +35,21 @@ ActiveRecord::Schema.define(version: 2021_02_02_214959) do
     t.integer "speed"
   end
 
+  create_table "subraces", force: :cascade do |t|
+    t.string "key"
+    t.string "name"
+    t.integer "race_id", null: false
+    t.integer "asi_str", default: 0
+    t.integer "asi_dex", default: 0
+    t.integer "asi_con", default: 0
+    t.integer "asi_int", default: 0
+    t.integer "asi_wis", default: 0
+    t.integer "asi_cha", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["race_id"], name: "index_subraces_on_race_id"
+  end
+
   add_foreign_key "characters", "races"
+  add_foreign_key "subraces", "races"
 end

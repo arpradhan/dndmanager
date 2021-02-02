@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: 
+  name: 
+  race: one
+  asi_str: 
+  asi_dex: 
+  asi_con: 
+  asi_int: 
+  asi_wis: 
+  asi_cha: 
+
+two:
+  key: 
+  name: 
+  race: two
+  asi_str: 
+  asi_dex: 
+  asi_con: 
+  asi_int: 
+  asi_wis: 
+  asi_cha: 

@@ -1,0 +1,10 @@
+<h1><%= @subrace.name %></h1>
+
+<p>Key: <%= @subrace.key %></p>
+<p>Race: <%= link_to @subrace.race.name, race_path(@subrace.race) %></p>
+<% if @subrace.asi_str > 0 %><p>Strength ASI: <%= @subrace.asi_str%><% end %>
+<% if @subrace.asi_dex > 0 %><p>Dexterity ASI: <%= @subrace.asi_dex%><% end %>
+<% if @subrace.asi_con > 0 %><p>Constitution ASI: <%= @subrace.asi_con%><% end %>
+<% if @subrace.asi_int > 0 %><p>Intelligence ASI: <%= @subrace.asi_int%><% end %>
+<% if @subrace.asi_wis > 0 %><p>Wisdom ASI: <%= @subrace.asi_wis %><% end %>
+<% if @subrace.asi_cha > 0 %><p>Charisma ASI: <%= @subrace.asi_cha %><% end %>

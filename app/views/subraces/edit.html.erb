@@ -1,0 +1,38 @@
+<h1>Edit Subrace</h1>
+<%= form_with model: [@race, @subrace] do |form| %>
+    <p>
+        <%= form.label :key %><br>
+        <%= form.text_field :key %>
+    </p>
+    <p>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+    </p>
+    <p>
+        <%= form.label "Strength ASI" %><br>
+        <%= form.number_field :asi_str %>
+    </p>
+    <p>
+        <%= form.label "Dexterity ASI" %><br>
+        <%= form.number_field :asi_dex %>
+    </p>
+    <p>
+        <%= form.label "Constitution ASI" %><br>
+        <%= form.number_field :asi_con %>
+    </p>
+    <p>
+        <%= form.label "Intelligence ASI" %><br>
+        <%= form.number_field :asi_int %>
+    </p>
+    <p>
+        <%= form.label "Wisdom ASI" %><br>
+        <%= form.number_field :asi_wis %>
+    </p>
+    <p>
+        <%= form.label "Charisma ASI" %><br>
+        <%= form.number_field :asi_cha %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>
