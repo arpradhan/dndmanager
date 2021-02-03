@@ -42,6 +42,15 @@
     </ul>
 <% end %>
 
+<% if @race.languages.size > 0 %>
+    <h3 Langauges>
+    <ul>
+        <% @race.languages.each do |language| %>
+            <li><%= language.name %></li>
+        <% end %>
+    </ul>
+<% end %>
+
 <h2>Add a Subrace</h2>
 <%= form_with model: [@race, @race.subraces.build] do |form| %>
     <p>
@@ -81,7 +90,16 @@
     </p>
 <% end %>
 
-
+<h2>Add a Language</h2>
+<%= form_with url: race_languages_path(@race) do |form| %>
+    <p>
+        <%= form.label :languages %><br>
+        <%= form.collection_check_boxes :language_id, @languages.order(:key), :id, :name %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>
 
 <ul>
     <li>

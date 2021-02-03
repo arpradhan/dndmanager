@@ -5,6 +5,7 @@ class RacesController < ApplicationController
 
     def show
         @race = Race.find(params[:id])
+        @languages = Language.all
     end
 
     def new
@@ -35,9 +36,25 @@ class RacesController < ApplicationController
         end
     end
 
+    def languages
+        @race = Race.find(params[:id])
+        
+        redirect_to @race
+    end
+
 
     private
     def race_params
-        params.require(:race).permit(:key, :name, :size, :speed, :asi_str, :asi_dex, :asi_con, :asi_int, :asi_wis, :asi_cha)
+        params.require(:race).permit(
+            :key, 
+            :name, 
+            :size, 
+            :speed, 
+            :asi_str, 
+            :asi_dex, 
+            :asi_con, 
+            :asi_int, 
+            :asi_wis, 
+            :asi_cha)
     end
 end
