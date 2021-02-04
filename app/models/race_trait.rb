@@ -1,0 +1,2 @@
+class RaceTrait < ApplicationRecord
+end

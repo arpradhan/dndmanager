@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h1>Proficiencies</h1>
+        </div>
+    </div>
+    <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="row">ID</th>
+                        <th scope="row">Key</th>
+                        <th scope="row">Name</th>
+                        <th scope="row">Type</th>
+                        <th scope="row"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @proficiencies.each do |proficiency| %>
+                        <tr>
+                            <th scope="col"><%= proficiency.id %></th>
+                            <td><%= proficiency.key %></td>
+                            <td><%= proficiency.name %></td>
+                            <td><%= proficiency.proficiency_type %></td>
+                            <td><%= link_to "Edit", edit_proficiency_path(proficiency)%></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <ul>
+                <li><%= link_to "Add Proficiency", new_proficiency_path %></li>
+            </ul>
+        </div>
+    </div>
+</div>

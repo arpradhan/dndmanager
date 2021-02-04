@@ -1,0 +1,26 @@
+<%= form_with model: proficiency do | form| %>
+    <div class="mb-3">
+        <%= form.label :key, class: "form-label" %><br>
+        <%= form.text_field :key, class: "form-control" %>
+        <% proficiency.errors.full_messages_for(:key).each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :name, class: "form-label" %><br>
+        <%= form.text_field :name, class: "form-control" %>
+        <% proficiency.errors.full_messages_for(:name).each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :proficiency_type, class: "form-label" %><br>
+        <%= form.select :proficiency_type, @proficiency_types %>
+        <% proficiency.errors.full_messages_for(:proficiency_type).each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+    <div class="mb-3">
+        <%= form.submit %>
+    </div>
+<% end %>

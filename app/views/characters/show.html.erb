@@ -1,20 +1,47 @@
-<h1><%= @character.name %></h1>
-<% if @character.race %>
-<p><%= @character.race.name %></p>
-<% end %>
-<h2>Features & Traits</h2>
-<h3>Languages</h3>
-<ul>
-    <% @character.race.languages.each do |language| %>
-        <li><%= language.name %></li>
-    <% end %>
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h1><%= @character.name %></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <% if @character.race %>
+            <p><%= @character.race.name %></p>
+            <% end %>
 
-<ul>
-    <li>
-        <%= link_to "Edit", edit_character_path(@character) %>
-    </li>
-    <li>
-        <%= link_to "Destroy", character_path(@character), method: :delete, data: { confirm: "Are you sure?" } %>
-    </li>
-</ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h2>Features & Traits</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Languages</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <ul>
+                <% @character.race.languages.each do |language| %>
+                    <li><%= language.name %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <ul>
+                <li>
+                    <%= link_to "Edit", edit_character_path(@character) %>
+                </li>
+                <li>
+                    <%= link_to "Destroy", character_path(@character), method: :delete, data: { confirm: "Are you sure?" } %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
