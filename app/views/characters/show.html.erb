@@ -1,8 +1,15 @@
 <h1><%= @character.name %></h1>
-<h3>Race</h3>
 <% if @character.race %>
-<div><%= @character.race.name %></div>
+<p><%= @character.race.name %></p>
 <% end %>
+<h2>Features & Traits</h2>
+<h3>Languages</h3>
+<ul>
+    <% @character.race.languages.each do |language| %>
+        <li><%= language.name %></li>
+    <% end %>
+</ul>
+
 <ul>
     <li>
         <%= link_to "Edit", edit_character_path(@character) %>
