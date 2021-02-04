@@ -173,3 +173,20 @@ When level up happens, check:
 - if con mod increases by 1, hp max increases by 1 for each level
 - check character advancement table for profincieny bonus
 - check race for additional features
+
+
+You have advantage on saving throws against poisoin, and you have resistance against poison damage.
+
+{"saving_throw_advantages": ["poison"], "damage_resistances": ["poison"]}
+
+dwarven_tool_proficiency
+Dwarven Tool Proficiency
+
+You gain proficiency with the artisan's tools of your chocice: smith's tools, brewer's supplies, or mason's tools.
+
+```json
+{"trait_type": "choice", "options": ["smiths_tools", "brewers_supplies", "masons_tools"], "n_choices": 1,"character_attribute": "tool_proficiencies"}
+```
+
+Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.
+

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h1>Race Trait</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Key</h3>
+            <p><%= @race_trait.key %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Name</h3>
+            <p><%= @race_trait.name %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Description</h3>
+            <p><%= @race_trait.description %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Trait</h3>
+            <p><%= @race_trait.trait %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <p><%= link_to "Edit", edit_race_trait_path(@race_trait) %></p>
+            <p><%= link_to "Race Traits", race_traits_path %></p>
+        </div>
+    </div>
+</div>

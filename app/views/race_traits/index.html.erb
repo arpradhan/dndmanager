@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h1>Race Traits</h1>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <th scope="row">ID</th>
+                <th scope="row">Key</th>
+                <th scope="row">Name</th>
+                <th scope="row"></th>
+            </thead>
+            <tbody>
+                <% @race_traits.each do |race_trait| %>
+                    <tr>
+                        <th scope="col"><%= race_trait.id %></th>
+                        <td><%= race_trait.key %></td>
+                        <td><%= race_trait.name %></td>
+                        <td><%= link_to "Show", race_trait_path(race_trait) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <%= link_to "New Race Trait", new_race_trait_path %>
+        </div>
+    </div>
+</div>
