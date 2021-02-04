@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :subraces
   end
 
-  post "/races/:id/languages", to: "races#languages", as: "race_languages"
+  patch "/races/:id/languages", to: "races#languages", as: "race_languages"
 
   resources :languages
 

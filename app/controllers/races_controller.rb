@@ -38,7 +38,9 @@ class RacesController < ApplicationController
 
     def languages
         @race = Race.find(params[:id])
-        
+        puts params
+        languages = Language.where(id: params[:race][:language_ids])
+        @race.update_languages(languages)
         redirect_to @race
     end
 

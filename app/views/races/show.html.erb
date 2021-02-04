@@ -43,7 +43,7 @@
 <% end %>
 
 <% if @race.languages.size > 0 %>
-    <h3 Langauges>
+    <h3>Languages</h3>
     <ul>
         <% @race.languages.each do |language| %>
             <li><%= language.name %></li>
@@ -91,13 +91,13 @@
 <% end %>
 
 <h2>Add a Language</h2>
-<%= form_with url: race_languages_path(@race) do |form| %>
+<%= form_with model: @race, url: race_languages_path(@race) do |form| %>
     <p>
         <%= form.label :languages %><br>
-        <%= form.collection_check_boxes :language_id, @languages.order(:key), :id, :name %>
+        <%= form.collection_check_boxes :language_ids, @languages.order(:key), :id, :name %>
     </p>
     <p>
-        <%= form.submit %>
+        <%= form.submit "Save" %>
     </p>
 <% end %>
 
