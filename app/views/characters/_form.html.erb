@@ -12,7 +12,7 @@
         <%= form.collection_select :race_id, @races.order(:name), :id, :name, class: "form-control" %>
     </div>
 
-    <% if character.race.subraces.count > 0 %>
+    <% if character.race and character.race.subraces.count > 0 %>
         <div class="mb-3">
             <%= form.label :subrace, class: "form-label" %><br>
             <%= form.collection_select :subrace_id, character.race.subraces.order(:name), :id, :name, class: "form-control" %>
