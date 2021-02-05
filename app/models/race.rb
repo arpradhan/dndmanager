@@ -5,6 +5,7 @@ class Race < ApplicationRecord
     has_many :subraces
     has_many :languages_races
     has_many :languages, through: :languages_races
+    has_many :race_traits
 
     def update_languages(languages)
         languages.each do |language|

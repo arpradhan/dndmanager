@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   patch "/races/:id/languages", to: "races#languages", as: "race_languages"
+  patch "/races/:id/race_trait", to: "races#race_trait", as: "race_race_trait"
 
   resources :languages
 

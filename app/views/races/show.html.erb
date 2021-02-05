@@ -1,108 +1,205 @@
-<h1><%= @race.name %></h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h1><%= @race.name %></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Key</h3>
+            <p><%= @race.key %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Name</h3>
+            <p><%= @race.name %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Size</h3>
+            <p><%= @race.size %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Speed</h3>
+            <p><%= @race.speed %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Ability Score Increases</h3>
+        </div>
+    </div>
+    <% if @race.asi_str > 0 %>
+        <div class="row">
+            <div class="col-sm">
+                <h4>Strength</h3>
+                <p><%= @race.asi_str %></p></p>
+            </div>
+        </div>
+    <% end %>
+    <% if @race.asi_dex > 0 %>
+        <div class="row">
+            <div class="col-sm">
+                <h4>Dexterity</h4>
+                <p><%= @race.asi_dex %></p></p>
+            </div>
+        </div>
+    <% end %>
+    <% if @race.asi_con > 0 %>
+        <div class="row">
+            <div class="col-sm">
+                <h4>Constitution</h4>
+                <p><%= @race.asi_con %></p></p>
+            </div>
+        </div>
+    <% end %>
+    <% if @race.asi_int > 0 %>
+        <div class="row">
+            <div class="col-sm">
+                <h4>Intelligence</h4>
+                <p><%= @race.asi_int %></p></p>
+            </div>
+        </div>
+    <% end %>
+    <% if @race.asi_wis > 0 %>
+        <div class="row">
+            <div class="col-sm">
+                <h4>Wisdom</h4>
+                <p><%= @race.asi_wis %></p></p>
+            </div>
+        </div>
+    <% end %>
+    <% if @race.asi_cha > 0 %>
+        <div class="row">
+            <div class="col-sm">
+                <h4>Charisma</h4>
+                <p><%= @race.asi_cha %></p></p>
+            </div>
+        </div>
+    <% end %>
+    <% if @race.subraces.size > 0 %>
+        <div class="row">
+            <div class="col-sm">
+                <h3>Subraces</h3>
+                <ul>
+            <% @race.subraces.each do |subrace| %>
+                <li><%= subrace.name %> <%= link_to "Edit", edit_race_subrace_path(subrace) %></li>
+            <% end %>
+                </ul>
+            </div>
+        </div>
+    <% end %>
+    <% if @race.languages.size > 0 %>
+        <div class="row">
+            <div class="col-sm">
+                <h3>Languages</h3>
+                <ul>
+                    <% @race.languages.each do |language| %>
+                        <li><%= language.name %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    <% end %>
 
-<p>Key: <%= @race.key %></p>
+    <% if @race.race_traits.size > 0 %>
+        <div class="row">
+            <div class="col-sm">
+                <h3>Race Traits</h3>
+                <ul>
+                    <% @race.race_traits.each do |race_trait| %>
+                        <li><%= race_trait.name %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    <% end %>
 
-<p>Name: <%= @race.name %></p>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Add a Subrace</h3>
+            <%= form_with model: [@race, @race.subraces.build] do |form| %>
+                <div class="mb-3">
+                    <%= form.label :key, class: "form-label"%><br>
+                    <%= form.text_field :key, class: "form-control" %>
+                </div>
+                <div class="mb-3">
+                    <%= form.label :name, class: "form-label"%><br>
+                    <%= form.text_field :name, class: "form-control" %>
+                </div>
+                <div class="mb-3">
+                    <%= form.label "Strength ASI", class: "form-label"%><br>
+                    <%= form.number_field :asi_str, class: "form-control" %>
+                </div>
+                <div class="mb-3">
+                    <%= form.label "Dexterity ASI", class: "form-label"%><br>
+                    <%= form.number_field :asi_dex, class: "form-control" %>
+                </div>
+                <div class="mb-3">
+                    <%= form.label "Constitution ASI", class: "form-label"%><br>
+                    <%= form.number_field :asi_con, class: "form-control" %>
+                </div>
+                <div class="mb-3">
+                    <%= form.label "Intelligence ASI", class: "form-label"%><br>
+                    <%= form.number_field :asi_int, class: "form-control" %>
+                </div>
+                <div class="mb-3">
+                    <%= form.label "Wisdom ASI", class: "form-label"%><br>
+                    <%= form.number_field :asi_wis, class: "form-control" %>
+                </div>
+                <div class="mb-3">
+                    <%= form.label "Charisma ASI", class: "form-label"%><br>
+                    <%= form.number_field :asi_cha, class: "form-control" %>
+                </div>
+                <div class="mb-3">
+                    <%= form.submit %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Add a Language</h3>
+            <%= form_with model: @race, url: race_languages_path(@race) do |form| %>
+                <div class="mb-3">
+                    <%= form.label :languages, class: "form-label"%><br>
+                    <%= form.collection_check_boxes :language_ids, @languages.order(:key), :id, :name, class: "form-control"%>
+                </div>
+                <div class="mb-3">
+                    <%= form.submit "Save" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Add a Race Trait</h3>
+            <%= form_with model: @race, url: race_race_trait_path(@race) do |form| %>
+                <div class="mb-3">
+                    <%= form.label :race_trait, class: "form-label" %><br>
+                    <%= form.collection_select :race_trait_id, @race_traits.order(:name), :id, :name, class: "form-control" %>
+                </div>
+                <div class="mb-3">
+                    <%= form.submit "Save" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <ul>
+                <li>
+                    <%= link_to "Edit", edit_race_path(@race) %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-<p>Size: <%= @race.size %></p>
 
-<p>Speed: <%= @race.speed %></p>
 
-<h3>Ability Score Increases</h3>
-<% if @race.asi_str > 0 %>
-    <p>Strength: <%= @race.asi_str %></p>
-<% end %>
 
-<% if @race.asi_dex > 0 %>
-    <p>Dexterity: <%= @race.asi_dex %></p>
-<% end %>
-
-<% if @race.asi_con > 0 %>
-    <p>Constitution: <%= @race.asi_con %></p>
-<% end %>
-
-<% if @race.asi_int > 0 %>
-    <p>Intelligence: <%= @race.asi_int %></p>
-<% end %>
-
-<% if @race.asi_wis > 0 %>
-    <p>Wisdom: <%= @race.asi_wis %></p>
-<% end %>
-
-<% if @race.asi_cha > 0 %>
-    <p>Charisma: <%= @race.asi_cha %></p>
-<% end %>
-
-<% if @race.subraces.size > 0 %>
-    <h3>Subraces</h3>
-    <ul>
-        <% @race.subraces.each do |subrace| %>
-            <li><%= subrace.name %> <%= link_to "Edit", edit_race_subrace_path(subrace) %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<% if @race.languages.size > 0 %>
-    <h3>Languages</h3>
-    <ul>
-        <% @race.languages.each do |language| %>
-            <li><%= language.name %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<h2>Add a Subrace</h2>
-<%= form_with model: [@race, @race.subraces.build] do |form| %>
-    <p>
-        <%= form.label :key %><br>
-        <%= form.text_field :key %>
-    </p>
-    <p>
-        <%= form.label :name %><br>
-        <%= form.text_field :name %>
-    </p>
-    <p>
-        <%= form.label "Strength ASI" %><br>
-        <%= form.number_field :asi_str %>
-    </p>
-    <p>
-        <%= form.label "Dexterity ASI" %><br>
-        <%= form.number_field :asi_dex %>
-    </p>
-    <p>
-        <%= form.label "Constitution ASI" %><br>
-        <%= form.number_field :asi_con %>
-    </p>
-    <p>
-        <%= form.label "Intelligence ASI" %><br>
-        <%= form.number_field :asi_int %>
-    </p>
-    <p>
-        <%= form.label "Wisdom ASI" %><br>
-        <%= form.number_field :asi_wis %>
-    </p>
-    <p>
-        <%= form.label "Charisma ASI" %><br>
-        <%= form.number_field :asi_cha %>
-    </p>
-    <p>
-        <%= form.submit %>
-    </p>
-<% end %>
-
-<h2>Add a Language</h2>
-<%= form_with model: @race, url: race_languages_path(@race) do |form| %>
-    <p>
-        <%= form.label :languages %><br>
-        <%= form.collection_check_boxes :language_ids, @languages.order(:key), :id, :name %>
-    </p>
-    <p>
-        <%= form.submit "Save" %>
-    </p>
-<% end %>
-
-<ul>
-    <li>
-        <%= link_to "Edit", edit_race_path(@race) %>
-    </li>
-</ul>

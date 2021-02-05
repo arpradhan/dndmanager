@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_234338) do
+ActiveRecord::Schema.define(version: 2021_02_05_000319) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_234338) do
     t.json "trait"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "race_id"
   end
 
   create_table "races", force: :cascade do |t|
@@ -82,5 +83,6 @@ ActiveRecord::Schema.define(version: 2021_02_04_234338) do
 
   add_foreign_key "characters", "races"
   add_foreign_key "characters", "subraces"
+  add_foreign_key "race_traits", "races"
   add_foreign_key "subraces", "races"
 end

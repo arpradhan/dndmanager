@@ -1,4 +1,5 @@
 class RaceTrait < ApplicationRecord
+    belongs_to :race
     before_validation :normalize_trait
 
     private
