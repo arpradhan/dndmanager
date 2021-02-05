@@ -175,18 +175,8 @@ When level up happens, check:
 - check race for additional features
 
 
-You have advantage on saving throws against poisoin, and you have resistance against poison damage.
 
-{"saving_throw_advantages": ["poison"], "damage_resistances": ["poison"]}
-
-dwarven_tool_proficiency
-Dwarven Tool Proficiency
-
-You gain proficiency with the artisan's tools of your chocice: smith's tools, brewer's supplies, or mason's tools.
-
-```json
-{"trait_type": "choice", "options": ["smiths_tools", "brewers_supplies", "masons_tools"], "n_choices": 1,"character_attribute": "tool_proficiencies"}
-```
-
-Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.
-
+If character chooses race with trait that requires a choice, create a record in the character_choice table:
+is_chosen = false
+object_id = race_trait_id
+object_type = race_trait
