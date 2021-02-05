@@ -19,11 +19,13 @@
     <div class="row">
         <div class="col-sm">
             <h2>Features & Traits</h2>
-            <% @character.race.race_traits.each do |race_trait| %>
-            <div class="mb-3">
-                <b><%=race_trait.name %></b>
-                <p><%= race_trait.description %></p>
-            </div>
+            <% if @character.race != nil %>
+                <% @character.race.race_traits.each do |race_trait| %>
+                    <div class="mb-3">
+                        <b><%=race_trait.name %></b>
+                        <p><%= race_trait.description %></p>
+                    </div>
+                <% end %>
             <% end %>
         </div>
     </div>
@@ -35,8 +37,10 @@
     <div class="row">
         <div class="col-sm">
             <ul>
-                <% @character.race.languages.each do |language| %>
-                    <li><%= language.name %></li>
+                <% if @character.race != nil %>
+                    <% @character.race.languages.each do |language| %>
+                        <li><%= language.name %></li>
+                    <% end %>
                 <% end %>
             </ul>
         </div>
@@ -65,7 +69,7 @@
                     <%= link_to "Edit", edit_character_path(@character) %>
                 </li>
                 <li>
-                    <%= link_to "Destroy", character_path(@character), method: :delete, data: { confirm: "Are you sure?" } %>
+                    <%= link_to "Characters", characters_path %>
                 </li>
             </ul>
         </div>
