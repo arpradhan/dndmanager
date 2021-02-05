@@ -5,6 +5,22 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    @damage_resistances = []
+    @saving_throw_advantages = []
+
+    @character.race.race_traits.each do |race_trait|
+      if race_trait.trait != nil
+        trait = JSON.parse(race_trait.trait)
+        resistances = trait["damage_resistances"]
+        saving_throws = trait["saving_throw_advantages"]
+        if resistances.is_a?(Array)
+          @damage_resistances.concat(resistances)
+        end
+        if saving_throws.is_a?(Array)
+          @saving_throw_advantages.concat(saving_throws)
+        end
+      end
+    end
   end
 
   def new
