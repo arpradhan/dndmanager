@@ -1,18 +1,25 @@
 <%= form_with model: character do |form| %>
-    <div>
-        <%= form.label :name %><br>
-        <%= form.text_field :name %>
+    <div class="mb-3">
+        <%= form.label :name, class: "form-label" %><br>
+        <%= form.text_field :name, class: "form-control" %>
         <% character.errors.full_messages_for(:name).each do |message| %>
             <div><%= message %></div>
         <% end %>
     </div>
 
-    <div>
-        <%= form.label :race %><br>
-        <%= form.collection_select :race_id, @races.order(:name), :id, :name %>
+    <div class="mb-3">
+        <%= form.label :race, class: "form-label" %><br>
+        <%= form.collection_select :race_id, @races.order(:name), :id, :name, class: "form-control" %>
     </div>
 
-    <div>
+    <% if character.race.subraces.count > 0 %>
+        <div class="mb-3">
+            <%= form.label :subrace, class: "form-label" %><br>
+            <%= form.collection_select :subrace_id, character.race.subraces.order(:name), :id, :name, class: "form-control" %>
+        </div>
+    <% end %>
+
+    <div class="mb-3">
         <%= form.submit %>
     </div>
 <% end %>
