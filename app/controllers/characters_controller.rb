@@ -47,7 +47,7 @@ class CharactersController < ApplicationController
 
   def update
     @character = Character.find(params[:id])
-    
+    @races = Race.all
     if @character.update(character_params)
       redirect_to @character
     else
